@@ -1,0 +1,60 @@
+{
+    "assosiationFunction": "assosiation.js",
+    "uniqueConstraint": [
+        {
+            "table": "group",
+            "column": "name",
+            "condition": "name-idProject"
+        },
+        {
+            "table": "well",
+            "column": "name",
+            "condition": "name-idProject"
+        },
+        {
+            "table": "dataset",
+            "column": "name",
+            "condition": "name-idWell"
+        },
+        {
+            "table": "curve",
+            "column": "name",
+            "condition": "name-idDataset"
+        },
+        {
+            "table": "plot",
+            "column": "name",
+            "condition": "name-idWell"
+        },
+        {
+            "table": "histogram",
+            "column": "name",
+            "condition": "name-idWell"
+        },
+        {
+            "table": "cross_plot",
+            "column": "name",
+            "condition": "name-idWell"
+        },
+        {
+            "table": "zone_set",
+            "column": "name",
+            "condition": "name-idWell"
+        },
+        {
+            "table": "combined_box",
+            "column": "name",
+            "condition": "name-idWell"
+        }
+    ],
+    "paranoidTable": [
+        "well",
+        "dataset",
+        "curve",
+        "histogram",
+        "plot",
+        "cross_plot",
+        "zone",
+        "zone_set"
+    ]
+}
