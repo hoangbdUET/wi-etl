@@ -4,4 +4,3 @@ package-lock.json
 node_modules
 database_defination/*
 database_export/*
-.idea/*
