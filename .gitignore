@@ -2,3 +2,6 @@ wi-etl.iml
 package-lock.json
 .idea
 node_modules
+database_defination/*
+database_export/*
+.idea/*
