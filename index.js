@@ -54,6 +54,19 @@ function importDestinationDatabase(dbConfig, options, callback) {
     dataDump.importDatabase(dbConfig, options, callback);
 }
 
+function syncDbDefination(callback) {
+    exportDatabaseDefinition(sourceDb, function (err) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log("Start generate database ", destinationDb.database_name, " from ", sourceDb.database_name);
+            importDatabaseDefination(destinationDb, function (model) {
+                callback(model);
+            });
+        }
+    });
+}
+
 function executeJob(tablesQueue, callback) {
     exportDatabaseDefinition(sourceDb, function (err, success) {
         if (err) {
@@ -92,5 +105,6 @@ function executeJob(tablesQueue, callback) {
 module.exports = {
     configSourceDb: configSourceDb,
     configDestinationDb: configDestinationDb,
-    executeJob: executeJob
+    executeJob: executeJob,
+    syncDbDefination: syncDbDefination
 };

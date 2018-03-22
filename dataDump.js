@@ -1,5 +1,5 @@
-const mysqlDump = require('wi-sqldump');
-const importer = require('node-mysql-importer');
+const mysqlDump = require('./mysql-function/mysql-exporter');
+const importer = require('./mysql-function/mysql-importer');
 const path = require('path');
 const fs = require('fs');
 
@@ -42,7 +42,7 @@ function importDatabase(dbConfig, options, callback) {
     });
     importer.importSQL(options.source_path).then(() => {
         console.log('All statements have been executed');
-        fs.unlinkSync(options.source_path);
+        // fs.unlinkSync(options.source_path);
         callback(null, dbConfig.database_name);
     }).catch(err => {
         console.log("===", err);
@@ -53,4 +53,4 @@ function importDatabase(dbConfig, options, callback) {
 module.exports = {
     exportDatabase: exportDatabase,
     importDatabase: importDatabase
-}
+};
